@@ -3,6 +3,7 @@
     :is="components[screen.component]"
     v-bind="screen.props"
     @next="goNext"
+    v-model="selectedValue"
   />
 </template>
 
@@ -15,8 +16,27 @@ const components = {
   SingleChoiceQuestion,
 };
 
-const { getScreen, getNextStep } = useFunnel();
+const { getScreen, getNextStep, variant } = useFunnel();
 const screen = getScreen("meat_preference");
 const router = useRouter();
-const goNext = () => router.push(`/s/${getNextStep("meat_preference")}`);
+const selectedValue = ref(null);
+
+const goNext = async () => {
+  const runtimeConfig = useRuntimeConfig();
+
+  await useFetch("/api/track", {
+    method: "POST",
+    body: {
+      event: variant,
+      properties: {
+        $current_url: "meat_preference",
+        screen_id: "meat_preference",
+        answer: selectedValue.value,
+        is_complete: true,
+      },
+    },
+  });
+
+  router.push(`/s/${getNextStep("meat_preference")}`);
+};
 </script>
