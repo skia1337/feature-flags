@@ -11,6 +11,16 @@ vercel dev
 
 could search //HINT: in codebase
 
+### Analytics Integration
+
+some posthog setup, for funnels will be better to use their initial feature-flag feature and experiment, but for demo i just gather some answers from our funnel and total sessions with diff funnel setup:
+
+![my activity](public/activity.png)_my activity_
+
+![answers as attribution](public/answers.png)_answers as attribution_
+
+![total sessions](public/answers.png)_total sessions_
+
 ### **Goal**
 
 Build a funnel-driven website that dynamically assigns users a predefined screen sequence (baseline or experimental) and ensures a consistent experience through server-side rendering.
