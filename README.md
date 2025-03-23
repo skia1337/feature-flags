@@ -19,7 +19,7 @@ some posthog setup, for funnels will be better to use their initial feature-flag
 
 ![answers as attribution](public/answers.png)_answers as attribution_
 
-![total sessions](public/answers.png)_total sessions_
+![total sessions](public/total_exp.png)_total sessions_
 
 ### **Goal**
 
